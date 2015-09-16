@@ -25,3 +25,16 @@ describe('Space', function() {
     expect(testSpace2.markedBy).to.equal(testPlayer2);
   });
 });
+
+describe('Board', function() {
+  it("creates a board of nine spaces when initialized", function() {
+    var newBoard = new Board();
+    expect(newBoard.spaces).to.eql([[new Space(1,1), new Space(2,1), new Space(3,1)],[new Space(1,2), new Space(2,2), new Space(3,2)],[new Space(1,3), new Space(2,3), new Space(3,3)]]);
+  });
+
+  it("returns the correct space when given coordinates", function() {
+    var testBoard = new Board();
+    var testSpace = new Space(1,2);
+    expect(testBoard.spaceAt(1,2)).to.eql(testSpace);
+  });
+});
