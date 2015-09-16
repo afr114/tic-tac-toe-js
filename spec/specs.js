@@ -6,3 +6,11 @@ describe('Player', function() {
     expect(testPlayer2.mark).to.equal("Y");
   });
 });
+
+describe('Space', function() {
+  it("returns a player's coordinates", function() {
+    var testSpace = new Space(2,3);
+    expect(testSpace.xCoordinate).to.equal(2);
+    expect(testSpace.yCoordinate).to.equal(3);
+  });
+});
