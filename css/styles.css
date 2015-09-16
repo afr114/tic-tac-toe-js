@@ -2,12 +2,17 @@ body {
   background-color: #b0e0e6;
 }
 
-.jumbotron {
+.custom-header {
   text-align: center;
+  background-color: #468499;
+  border-radius: 5px;
+  padding: 10px;
+  color: #b0e0e6;
+  margin: 20px;
 }
 
 .table-bordered>tbody>tr>td {
-  border: 2px solid black;
+  border: 2px solid #468499;
 }
 
 td {
@@ -16,8 +21,24 @@ td {
   border-color: black;
 }
 
-.btn {
-  padding: 30px;
+.btn, .btn-default {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: rgba(0,0,0,.02);
-  margin-left: 35%;
+  margin-left: 30%;
+  font-size: 3em;
+  -webkit-text-fill-color: #b0e0e6;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #468499;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #468499;
+}
+
+.buttonClicked {
+  color: red;
 }

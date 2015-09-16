@@ -1,9 +1,9 @@
 describe('Player', function() {
   it("assigns a symbol to each player", function() {
     var testPlayer1 = new Player("X");
-    var testPlayer2 = new Player("Y");
+    var testPlayer2 = new Player("O");
     expect(testPlayer1.mark).to.equal("X");
-    expect(testPlayer2.mark).to.equal("Y");
+    expect(testPlayer2.mark).to.equal("O");
   });
 });
 
@@ -17,7 +17,7 @@ describe('Space', function() {
   it("lets a player mark their space on the board", function() {
     var testPlayer1 = new Player("X");
     var testSpace1 = new Space(2,3);
-    var testPlayer2 = new Player("Y");
+    var testPlayer2 = new Player("O");
     var testSpace2 = new Space(1,3);
     testSpace1.markBy(testPlayer1);
     testSpace2.markBy(testPlayer2);
