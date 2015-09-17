@@ -1,6 +1,3 @@
-var x = "X";
-var y = "Y";
-
 function Player(mark) {
   this.mark = mark;
 }
@@ -8,7 +5,7 @@ function Player(mark) {
 function Space(x, y) {
   this.xCoordinate = x;
   this.yCoordinate = y;
-  this.markedBy = null;
+  this.markedBy = "";
 }
 
 Space.prototype.markBy = function(player) {
@@ -26,55 +23,60 @@ Board.prototype.spaceAt = function(x, y) {
 }
 
 //it's not done yet
-Board.prototype.win = function() {
-  var verticalXCount = 0;
-  var verticalOCount = 0;
-  var xMoves = [];
-  var oMoves = [];
-  var XWin = false;
-  var OWin = false;
+Board.prototype.win = function(space) {
 
-  this.spaces.forEach(function(space) {
-    for (var i = 0; i < space.length; i++) {
-      if(space[i].markedBy) {
-        if(space[i].markedBy.mark === "X" ) {
-          xMoves.push([space[i]]);
-        } else {
-          oMoves.push(space[i]);
-        }
+    var xWin = false
+    for(var i = 0; i < 3; i++) {
+      if ( this.spaceAt(0,0).markedBy.mark === "X" && this.spaceAt(0,1).markedBy.mark === "X" && this.spaceAt(0,2).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if  ( this.spaceAt(1,0).markedBy.mark === "X" && this.spaceAt(1,1).markedBy.mark === "X" && this.spaceAt(1,2).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if ( this.spaceAt(2,0).markedBy.mark === "X" && this.spaceAt(2,1).markedBy.mark === "X" && this.spaceAt(2,2).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if ( this.spaceAt(0,0).markedBy.mark === "X" && this.spaceAt(1,0).markedBy.mark === "X" && this.spaceAt(2,0).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if ( this.spaceAt(0,1).markedBy.mark === "X" && this.spaceAt(1,1).markedBy.mark === "X" && this.spaceAt(2,1).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if ( this.spaceAt(0,2).markedBy.mark === "X" && this.spaceAt(1,2).markedBy.mark === "X" && this.spaceAt(2,2).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if ( this.spaceAt(0,0).markedBy.mark === "X" && this.spaceAt(1,1).markedBy.mark === "X" && this.spaceAt(2,2).markedBy.mark === "X" ) {
+        xWin = true;
+      } else if ( this.spaceAt(0,2).markedBy.mark === "X" && this.spaceAt(1,1).markedBy.mark === "X" && this.spaceAt(2,0).markedBy.mark === "X" ) {
+        xWin = true;
       }
     }
-    debugger;
 
-    // for(var i = 0; i < space.length; ++i) { //OLD CODE
-    //   if(space[i].markedBy) {
-    //     if(space[i].markedBy.mark === "X") {
-    //       verticalXCount += 1;
-    //     } else {
-    //       verticalOCount += 1;
-    //     }
-    //   }
-    //
-    //   if(verticalXCount === 3) {
-    //     XWin = true;
-    //   } else if (verticalOCount === 3) {
-    //     OWin = true;
-    //   }
-    // }
-    //
-    // verticalXCount = 0;
-    // verticalOCount = 0;
-  });
+    if (xWin === true) {
+      alert("X Wins");
+      location.reload();
+    };
 
-  if(XWin === true) {
-    alert("PLAYER X WINS, SUCKA");
-  } else if (OWin === true) {
-    alert("player O wins, yahoo");
-  }
+    var oWin = false;
+    for(var i = 0; i < 3; i++) {
+      if ( this.spaceAt(0,0).markedBy.mark === "O" && this.spaceAt(0,1).markedBy.mark === "O" && this.spaceAt(0,2).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if  ( this.spaceAt(1,0).markedBy.mark === "O" && this.spaceAt(1,1).markedBy.mark === "O" && this.spaceAt(1,2).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if ( this.spaceAt(2,0).markedBy.mark === "O" && this.spaceAt(2,1).markedBy.mark === "O" && this.spaceAt(2,2).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if ( this.spaceAt(0,0).markedBy.mark === "O" && this.spaceAt(1,0).markedBy.mark === "O" && this.spaceAt(2,0).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if ( this.spaceAt(0,1).markedBy.mark === "O" && this.spaceAt(1,1).markedBy.mark === "O" && this.spaceAt(2,1).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if ( this.spaceAt(0,2).markedBy.mark === "O" && this.spaceAt(1,2).markedBy.mark === "O" && this.spaceAt(2,2).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if ( this.spaceAt(0,0).markedBy.mark === "O" && this.spaceAt(1,1).markedBy.mark === "O" && this.spaceAt(2,2).markedBy.mark === "O" ) {
+        oWin = true;
+      } else if ( this.spaceAt(0,2).markedBy.mark === "O" && this.spaceAt(1,1).markedBy.mark === "O" && this.spaceAt(2,0).markedBy.mark === "O" ) {
+        oWin = true;
+      }
+    }
 
+    if (oWin === true) {
+      alert("O Wins");
+      location.reload();
+    };
 
-
-  // more code for horizontal wins and diagonal wins if conditions above are not met and returned
 }
 
 $(document).ready(function() {
@@ -89,8 +91,6 @@ $(document).ready(function() {
     $("#playerOButton-1-1").hide();
     $('#box-1-1').hide();
     gameBoard.win(playerX)
-    // $(this).removeClass()
-    // $(this).addClass('buttonClicked');
   });
 
   $("span#playerOButton-1-1").click(function() {
