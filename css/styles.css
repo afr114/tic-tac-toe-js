@@ -4,7 +4,7 @@ body {
 
 .custom-header {
   text-align: center;
-  text-color:050505
+  color:050505;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 10px;
@@ -41,6 +41,6 @@ td {
   background-color: #468499;
 }
 
-.buttonClicked {
-  color: red;
+.space {
+  font-size:110px;
 }
