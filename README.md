@@ -10,8 +10,8 @@ I had promised myself I would circle back around and conquer this project, since
 I rewrote all of the javascript code from scratch and updated the styling.  The gameplay currently allows only two players to play.
 There is no computer opponent yet.
 
-Next Steps:  1) Add a computer opponent. 
-             2) Add a Service Worker to allow gameplay when not connected to network.
+Next Steps:  _1) Add a computer opponent._ 
+             _2) Add a Service Worker to allow gameplay when not connected to network._
 
 ## Setup
 
