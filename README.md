@@ -12,8 +12,9 @@ There is no computer opponent yet.
 
 Next Steps:
 
-_1) Add a computer opponent._
-_2) Add a Service Worker to allow gameplay when not connected to network._
+1) Add a computer opponent.
+
+2) Add a Service Worker to allow gameplay when not connected to network.
 
 ## Setup
 
