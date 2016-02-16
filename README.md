@@ -7,8 +7,7 @@
 
 I initially worked on this project in September 2015 during a coding bootcamp with antonio97b(I forked this repo from him). 
 I had promised myself I would circle back around and conquer this project, since I found it pretty difficult in 2015.  
-I rewrote all of the javascript code from scratch and updated the styling.  The gameplay currently allows only two players to play.
-There is no computer opponent yet.
+I rewrote all of the javascript code from scratch and updated the styling.  The gameplay currently allows only two players to play with no computer opponent.
 
 Next Steps:
 
