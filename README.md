@@ -3,7 +3,7 @@
 
 #### By _**Abdul Rahimi**_
 
-## Description
+### Description
 
 I initially worked on this project in September 2015 during a coding bootcamp with antonio97b(I forked this repo from him). 
 I had promised myself I would circle back around and conquer this project, since I found it pretty difficult in 2015.  
