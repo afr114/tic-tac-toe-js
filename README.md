@@ -27,7 +27,7 @@ _Written with JavaScript, mocha, chai, jQuery._
 ### Legal
 
 
-Copyright (c) 2015 **_Abdul Rahimi and Tony Navarro_**
+Copyright (c) 2015 **_Abdul Rahimi_**
 
 This software is licensed under the MIT license.
 
