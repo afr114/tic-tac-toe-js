@@ -1,5 +1,5 @@
 
-##### _tic-tac-toe-js_
+##### Tic-Tac-Toe-JS
 
 #### By _**Abdul Rahimi**_
 
