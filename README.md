@@ -11,7 +11,8 @@ I rewrote all of the javascript code from scratch and updated the styling.  The 
 There is no computer opponent yet.
 
 Next Steps:  
-_1) Add a computer opponent._ 
+_1) Add a computer opponent._
+
 _2) Add a Service Worker to allow gameplay when not connected to network._
 
 ## Setup
