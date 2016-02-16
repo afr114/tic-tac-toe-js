@@ -5,7 +5,6 @@ var player1 = new Player();
 var player2 = new Player();
 var playerTurn = player1;
 
-
 function checkRow(element1, element2, element3) {
     if (isDefined(element1) && element1 === element2 && element2 === element3) {
       return true;
@@ -25,21 +24,42 @@ function isDefined(element) {
 function checkWin(board) {
     if (checkRow(board[2], board[4], board[6]) || checkRow(board[0], board[4], board[8])) {
       gameOver();
+      triggerModal.win();
     }
     else if (checkRow(board[0], board[1], board[2]) || checkRow(board[3], board[4], board[5]) || checkRow(board[6], board[7], board[8])  ) {
       gameOver();
+      triggerModal.win();
     }
     else if (checkRow(board[0], board[3], board[6]) || checkRow(board[1], board[4], board[7]) || checkRow(board[2], board[5], board[8])) {
       gameOver();
+      triggerModal.win();
     }
   }
 
+function checkTie() {
+  if (player1.counter.length === 0 && player2.counter.length === 0) {
+    triggerModal.tie();
+  }
+}
+
+triggerModal = {
+  win: function() {
+    $(document).ready(function(){
+      $("h4.modal-title").text(playerTurn.playerName + " Wins");
+      $("#myModal").modal();
+    });
+  },
+  tie: function() {
+    $(document).ready(function(){
+      $("h4.modal-title").text("It's a tie!");
+      $("#myModal").modal();
+    });
+  }
+};
+
 function gameOver() {
-    player1.counter = [];
-    player2.counter = [];
-    console.log(playerTurn.playerName);
     for (var i = 0; i < 9; i++) {
-      document.getElementById("space" + i).removeEventListener("click", listener);
+      document.getElementById("space" + i).removeEventListener("click", boardListener);
     }
   }
 
@@ -60,37 +80,58 @@ function Player() {
 function assignCounters() {
   if (round % 2 === 0) {
     player1.counter = ["O", "O", "O", "O", "O"];
-    player1.playerName = "Player O";
+    player1.playerName = "PlayerO";
     player2.counter = ["X","X","X","X"];
-    player2.playerName = "Player X";
+    player2.playerName = "PlayerX";
   } else {
     player1.counter = ["X", "X", "X", "X", "X"];
-    player1.playerName = "Player X";
+    player1.playerName = "PlayerX";
     player2.counter = ["O","O","O","O"];
-    player2.playerName = "Player O";
+    player2.playerName = "PlayerO";
   }
 }
 
 function gameLogic(id, elementNum){
   if (board[elementNum] === undefined) {
-    var playerCounter = playerTurn.counter.pop();
+    playerCounter = playerTurn.counter.pop();
     $("#"+ id + " span").text(playerCounter);
     board[elementNum] = playerCounter;
     turn++;
     checkWin(board);
+    checkTie();
     checkPlayerTurn();
   }
 }
 
-function listener() {
+function boardListener() {
     var id = $(this).attr('id');
     var elementNum = parseInt(id.slice(-1));
     gameLogic(id, elementNum);
 }
 
+function setBoardListeners(){
+  for (var i = 0; i < 9; i++) {
+    document.getElementById("space" + i).addEventListener("click", boardListener);
+  }
+}
+
+function clearBoard() {
+  board = [];
+  spaces = $(".space")
+  spaces.empty();
+}
+
+function newGameListener() {
+  clearBoard();
+  turn = 1;
+  round++;
+  assignCounters();
+  setBoardListeners();
+  checkPlayerTurn();
+}
+
 $(document).ready(function() {
     assignCounters();
-    for (var i = 0; i < 9; i++) {
-      document.getElementById("space" + i).addEventListener("click", listener);
-    }
+    setBoardListeners();
+    document.getElementsByTagName("button")[0].addEventListener("click", newGameListener);
 });

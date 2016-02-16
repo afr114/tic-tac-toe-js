@@ -2,72 +2,85 @@
 <html>
   <head>
     <title>Noughts & Crosses</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src='js/jquery-1.11.3.js'></script>
-    <script src="js/scripts.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
   <body>
     <div class="container">
       <div class="custom-header">
+<!-- Modal Structure -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <button type="button" class="btn btn-default btn-md outline" data-dismiss="modal">Play Again</button>
+          <button type="button" class="btn btn-danger btn-md outline" data-dismiss="modal">Quit</button>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+
+    </div>
+  </div>
         <h1>Noughts & Crosses</h1>
-      </div>
-      <div class="scoreboard">
-        <p>Player X wins:</p>
-        <p>Ties:</p>
-        <p>Player O wins:</p>
-      </div>
       <div class="row">
         <div class="col-md-2">
         </div>
         <div class="col-md-8">
-          <table class="table table-bordered">
+          <table class="table table-bordered center-table">
             <tr>
-              <td id="space0">
+              <td class="gameBoard" id="space0">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
-              <td id="space1">
+              <td class="gameBoard" id="space1">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
-              <td id="space2">
+              <td class="gameBoard" id="space2">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
             </tr>
             <tr>
-              <td id="space3">
+              <td class="gameBoard" id="space3">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
-              <td id="space4">
+              <td class="gameBoard" id="space4">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
-              <td id="space5">
+              <td class="gameBoard" id="space5">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
             </tr>
             <tr>
-              <td id="space6">
+              <td class="gameBoard" id="space6">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
-              <td id="space7">
+              <td class="gameBoard" id="space7">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
               </td>
-              <td id="space8">
+              <td class="gameBoard" id="space8">
                 <div class="form-group text-center">
                   <span class="space"></span>
                 </div>
@@ -78,6 +91,27 @@
         <div class="col-md-2">
         </div>
       </div>
+      <div class="row score-board-color">
+        <div class="col-xs-6"><span class="pull-left">
+          <i class="fa fa-user fa-4x"></i></br>
+          <p class"score-board">
+          PlayerX Wins
+        </p><p class="score">
+          0
+        </p></span>
+        </div>
+        <div class="col-xs-6"><span class="pull-right">
+          <i class="fa fa-user fa-4x"></i></br>
+          <p class"score-board">
+          PlayerO Wins
+        </p><p class="score">
+          0
+        </p></span>
+        </div>
+      </div>
     </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 </html>
