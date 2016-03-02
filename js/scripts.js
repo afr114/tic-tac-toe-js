@@ -1,9 +1,9 @@
-var board = [];
-var turn = 1;
-var round = 1;
-var player1 = new Player();
-var player2 = new Player();
-var playerTurn = player1;
+var board = [],
+    turn = 1,
+    round = 1,
+    player1 = new Player(),
+    player2 = new Player(),
+    playerTurn = player1;
 
 function checkRow(element1, element2, element3) {
   if (isDefined(element1) && element1 === element2 && element2 === element3) {
@@ -79,12 +79,7 @@ function setRecord() {
 }
 
 function checkPlayerTurn() {
-  if (turn % 2 === 0) {
-    playerTurn = player2;
-  }
-  else {
-    playerTurn = player1;
-  }
+  (turn % 2 === 0) ? playerTurn = player2 : playerTurn = player1;
 }
 
 function Player() {
