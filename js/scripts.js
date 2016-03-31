@@ -1,13 +1,33 @@
 var board = [],
-    turn = 1,
-    round = 1,
-    player1 = new Player(),
-    player2 = new Player(),
-    playerTurn = player1;
+  row1,
+  row2,
+  row3,
+  row4,
+  row5,
+  row6,
+  row7,
+  row8,
+  rowList = { row1, row2, row3, row4, row5, row6, row7, row8 },
+  turn = 1,
+  round = 1,
+  player1 = new Player(),
+  player2 = new Player(),
+  playerTurn = player1;
 
-function checkRow(element1, element2, element3) {
-  if (isDefined(element1) && element1 === element2 && element2 === element3) {
-    return true;
+function updatedRowValues(board) {
+  row1 = [this.board[0], this.board[1], this.board[2]],
+  row2 = [this.board[3], this.board[4], this.board[5]],
+  row3 = [this.board[6], this.board[7], this.board[8]],
+  row4 = [this.board[0], this.board[3], this.board[6]],
+  row5 = [this.board[1], this.board[4], this.board[7]],
+  row6 = [this.board[2], this.board[5], this.board[8]],
+  row7 = [this.board[0], this.board[4], this.board[8]],
+  row8 = [this.board[2], this.board[4], this.board[6]];
+}
+
+function checkRow(row) {
+  if (row.every(isDefined)) {
+    checkWin(row);
   } else {
     return false;
   }
@@ -21,19 +41,19 @@ function isDefined(element) {
   }
 }
 
-function checkWin(board) {
-  if (checkRow(board[2], board[4], board[6]) || checkRow(board[0], board[4], board[8])) {
+function isEqual(row) {
+  var first = row[0]
+  return row.every(function(element) {
+        return element === first;
+    });
+}
+
+function checkWin(row) {
+  if (isEqual(row)) {
     gameOver();
     triggerModal.win();
   }
-  else if (checkRow(board[0], board[1], board[2]) || checkRow(board[3], board[4], board[5]) || checkRow(board[6], board[7], board[8])  ) {
-    gameOver();
-    triggerModal.win();
-  }
-  else if (checkRow(board[0], board[3], board[6]) || checkRow(board[1], board[4], board[7]) || checkRow(board[2], board[5], board[8])) {
-    gameOver();
-    triggerModal.win();
-  } else {
+  else {
     checkTie();
   }
 }
@@ -44,7 +64,7 @@ function checkTie() {
   }
 }
 
-triggerModal = {
+var triggerModal = {
   win: function() {
     $(document).ready(function(){
       $("h4.modal-title").text(playerTurn.playerName + " Wins");
@@ -80,7 +100,7 @@ function setRecord() {
 
 function checkPlayerTurn() {
   (turn % 2 === 0) ? playerTurn = player2 : playerTurn = player1;
-}
+  }
 
 function Player() {
   this.counter = [];
@@ -108,7 +128,10 @@ function gameLogic(id, elementNum){
     $("#"+ id + " span").text(playerCounter);
     board[elementNum] = playerCounter;
     turn++;
-    checkWin(board);
+    updatedRowValues(board);
+    for (rows in rowList) {
+      checkRow(row1);
+    }
     checkPlayerTurn();
   }
 }

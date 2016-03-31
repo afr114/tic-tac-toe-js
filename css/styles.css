@@ -6,6 +6,7 @@ h1 {
   color: #fff;
   margin-bottom:2%;
   margin-top:-1%;
+  text-align:center;
 }
 
 span.space{
@@ -26,11 +27,11 @@ span.space{
 
 .gameBoard {
   width: 150px;
-  height: 167px;
+  height: 150px;
 }
 
 .space {
-  font-size:90px;
+  font-size:80px;
 }
 
 .table td {
@@ -38,51 +39,19 @@ span.space{
 }
 
 .btn.outline {
-    background: none;
     padding: 12px 22px;
-}
-
-.btn-default.outline {
-    border: 2px solid #ccc;
-    color: #333;
     font-weight: 800;
-}
-
-.btn-default.outline:hover, .btn-default.outline:focus, .btn-default.outline:active, .btn-default.outline.active, .open > .dropdown-toggle.btn-default {
-    color: #333;
-    border-color: #ccc;
-}
-
-.btn-default.outline:active, .btn-default.outline.active {
-    border-color: #ccc;
-    color: #333;
-    box-shadow: none;
-}
-
-button.btn.btn-default.btn-md.outline {
-  text-transform:uppercase;
-}
-
-
-.btn-danger.outline {
-    border: 2px solid #d9534f;
-    color: #d9534f;
-}
-
-.btn-danger.outline:hover, .btn-danger.outline:focus, .btn-danger.outline:active, .btn-danger.outline.active, .open > .dropdown-toggle.btn-danger {
-    color: #d9534f;
-    border-color: #d9534f;
-}
-.btn-danger.outline:active, .btn-danger.outline.active {
-    border-color: #d9534f;
-    color: #007299;
-    box-shadow: none;
-}
-
-button.btn.btn-danger.btn-md.outline{
-  text-transform: uppercase;
+    text-transform:uppercase;
 }
 
 .score-board-color{
   color:white;
+}
+
+.center{
+  text-align:center;
+}
+
+.modal-body{
+  padding-top:46%;
 }
