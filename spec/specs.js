@@ -1,3 +1,5 @@
+chai.should()
+
 describe('isDefined', function() {
   it("checks to see if element is defined", function() {
     var board1 = ["X"];
@@ -41,5 +43,7 @@ describe('checkWin', function() {
     expect(checkTieFunctionCall).to.equal(1);
     checkWin(row1);
     expect(gameOverFunctionCall).to.equal(1);
+    stub1.restore();
+    stub2.restore();
   });
 });

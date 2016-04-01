@@ -7,7 +7,6 @@ var board = [],
   row6,
   row7,
   row8,
-  rowList = { row1, row2, row3, row4, row5, row6, row7, row8 },
   turn = 1,
   round = 1,
   player1 = new Player(),
@@ -50,7 +49,7 @@ function isEqual(row) {
 
 function checkWin(row) {
   if (isEqual(row)) {
-    gameOver();
+    gameOver()
     triggerModal.win();
   }
   else {
@@ -129,8 +128,11 @@ function gameLogic(id, elementNum){
     board[elementNum] = playerCounter;
     turn++;
     updatedRowValues(board);
-    for (rows in rowList) {
-      checkRow(row1);
+    rowList = { row1, row2, row3, row4, row5, row6, row7, row8 };
+    for (row in rowList) {
+      if (rowList[row].length === 3 && rowList[row].some(isDefined)) {
+        checkRow(rowList[row]);
+      }
     }
     checkPlayerTurn();
   }
